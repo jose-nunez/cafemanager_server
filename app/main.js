@@ -41,8 +41,8 @@ function startServer(db){
 		res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 		next();
 	});
-	// var cors = require('cors');
-	// app.use(cors());
+	/*var cors = require('cors');
+	app.use(cors());*/
 
 
 	http.listen(puerto,function() {
