@@ -1,0 +1,14 @@
+{
+	"Product": "Producto",
+	"Pack": "Paquete",
+	"no products":"Nada que ver acá",
+	"all": "Todos los productos",
+	"sale": "En oferta",
+	"nocat": "Sin categoría",
+	"packs": "Paquetes",
+	"nostock": "Sin existencias",
+	"disabled": "Deshabilitados",
+	"cost": "Costo",
+	"normal": "Normal",
+	"special": "Especial",
+}

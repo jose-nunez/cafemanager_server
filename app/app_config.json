@@ -1,0 +1,17 @@
+{
+	"debug":true,
+	"no-select-text":true,
+	
+	"responsive-grid-columns":true,
+	"grid-columns-small":2,
+	"grid-columns-medium":3,
+	"grid-columns-large":4,
+	"grid-columns-xlarge":7,
+	"grid-columns-xxlarge":8,
+
+	"refresh-selection":true,
+	"products-per-page":20,
+	"paginate-filters":true,
+	"exclusive-filters":false,
+	"show-more-than-two-images":false
+}
