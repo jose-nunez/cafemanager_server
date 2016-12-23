@@ -17,7 +17,7 @@ global.server_log = function(){if(config.debug){console.log('['+formatDate(new D
 server_log('Leido archivo de configuracion');
 
 server_log('Iniciando base de datos');
-// db = startDataBase();
+db = startDataBase();
 
 server_log('Iniciando servidor');
 startServer(db);
@@ -66,8 +66,8 @@ function publishServices(app,db,io){
 		translate(res,req.query.lang);
 	})
 	.get('/get',function(req,res){
-		server_log('recibida solicitud. Last updated:'+req.query.date);
-		get(req.query.type,req.query.date).then(function(result){
+		server_log('recibida solicitud. Last updated:'+req.query.lastUpdated);
+		get(req.query.type,req.query.lastUpdated).then(function(result){
 			res.send(result);
 		},handleError);
 	})
@@ -96,8 +96,8 @@ function openSockets(http,db){
 		});
 
 		socket.on('get', function(params){
-			server_log('recibida solicitud. Last updated:'+params.date);
-			get(params.type,params.date).then(function(result){
+			server_log('recibida solicitud. Last updated:'+params.lastUpdated);
+			get(params.type,params.lastUpdated).then(function(result){
 				server_log('enviando datos');
 				socket.emit('datasent',result);
 			},handleError);
@@ -115,30 +115,30 @@ function openSockets(http,db){
 	return io;
 }
 
-function get(type,date){
+function get(type,lastUpdated){
 	// UNA CHUCHUFLETA DEL PORTE DE UN BUQUE
 	var now = formatDate(new Date((new Date()).toISOString().replace('T',' ').replace('Z','')));
 	
 	server_log('iniciando lectura');
 	/**************************************************************************************/
-	/*var promesa = new Promise(function(resolve, reject){
-		db.get(type,{date:date}).then(function(result){
+	var promesa = new Promise(function(resolve, reject){
+		db.get(type,{lastUpdated:lastUpdated}).then(function(result){
 			if(result.count>0){
 				server_log('datos obtenidos');
 			}
 			else{
 				server_log('no hay datos');
 			}
-			result.date = now;
+			result.lastUpdated = now;
 			
 			resolve(result);
 		},function(err){reject(err);});
-	});*/
+	});
 
 	/**************************************************************************************/
-	var promesa = new Promise(function(resolve, reject){
+	/*var promesa = new Promise(function(resolve, reject){
 		resolve(require('jsonfile').readFileSync('el_barista.json','utf8'));
-	});
+	});*/
 	/**************************************************************************************/
 
 	

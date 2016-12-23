@@ -1,18 +1,15 @@
 {
-	"name": "cafeManager_server",
-	"version": "0.0.1",
-	"main": "app/main.js",
-	"dependencies": {
-		"promise":"7.1.1",
-		"express": "3.x",
-		"sqlite3": "3.x",
-		"async": "x.x",
-		"sequelize": "x.x",
-		"socket.io": "x.x",
-		"jsonfile":"x.x",
-		"cors":"2.7.1"
-	},
-	"webkit":{
-		"page-cache":true
-	}
+  "name": "cafeManager_server",
+  "version": "0.0.1",
+  "main": "app/main.js",
+  "dependencies": {
+    "promise": "7.1.1",
+    "express": "3.x",
+    "sqlite3": "^3.1.8",
+    "async": "x.x",
+    "sequelize": "x.x",
+    "socket.io": "x.x",
+    "jsonfile": "x.x",
+    "cors": "2.7.1"
+  }
 }

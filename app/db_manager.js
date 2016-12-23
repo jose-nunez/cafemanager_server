@@ -139,8 +139,8 @@ db.singular = {
 db.setQueryOptions = function(opt){
 	var where;
 	if(opt){
-		if(opt.date){ if(!where) where = {};
-			where.updated = {$gt:opt.date};
+		if(opt.lastUpdated){ if(!where) where = {};
+			where.updated = {$gt:opt.lastUpdated};
 		}
 		if(opt.id){ if(!where) where = {};
 			where.id = opt.id;
@@ -311,7 +311,9 @@ db._get_all = function(opt,elements){
 	return promesa;
 }
 
+// GetTypes
 db._get_all_product_list = ['_get_singles','_get_packs','_get_categories','_get_prices','_get_extras','_get_modifiers','_get_modifier_extra_singles'];
+
 db._get_all_product = function(opt){
 	var db = this;
 	return db._get_all(opt,db._get_all_product_list);
